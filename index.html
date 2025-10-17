@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Hasan Faris-Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Mohamed Hasan Faris M</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#certificates" class="nav-link" data-section="certificates">Certificates</a></li>
+                <li><a href="#internships" class="nav-link highlighted-link" data-section="internships">Internships</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+            </ul>
+        </nav>
+        <i id="theme-toggle" class="fas fa-sun" onclick="toggleTheme()"></i> 
+    </header>
+
+    <main class="hero-section" id="home">
+        <div class="hero-content">
+            <p class="greeting">Hello, I'm</p> 
+            <h1>Mohamed Hasan Faris, <span id="role-text">I'm a Python Developer</span></h1> 
+            
+            <p class="description">AI and Machine Learning Engineer with a strong Computer Science foundation, specializing in intelligent systems, performance optimization, and scalable AI solutions. Skilled in machine learning, deep learning, and advanced algorithms to drive automation, innovation, and data-driven insights</p>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mohamed-hasan-faris/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Mohamedhasanfaris" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/hasan.faris.57/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            
+            <div class="hire-and-resume-buttons">
+               <a href="#contact" class="hire-button">Hire me</a>
+               <button class="resume-button" onclick="openResumeModal()">View Resume</button> 
+               </div>
+        </div>
+        <div class="hero-image-container">
+            <img src="Assets/profile.jpg" alt="Mohamed Hasan Faris Profile Image" class="profile-image"> 
+        </div>
+    </main>
+
+    <section id="skills" class="portfolio-section skills-section">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item"><img src="assets/python.png" alt="Python"><p>Python</p></div>
+            <div class="skill-item"><img src="assets/tensorflow.png" alt="TensorFlow"><p>TensorFlow</p></div>
+            <div class="skill-item"><img src="assets/pandas.png" alt="Pandas"><p>Pandas</p></div>
+            <div class="skill-item"><img src="assets/opencv.png" alt="OpenCV"><p>OpenCV</p></div>
+            <div class="skill-item"><img src="assets/Numpy.png" alt="Numpy"><p>Numpy</p></div>
+            <div class="skill-item"><img src="assets/matplotlib.png" alt="Matplotlib"><p>Matplotlib</p></div>
+            <div class="skill-item"><img src="assets/Html.png" alt="Html"><p>HTML</p></div>
+            <div class="skill-item"><img src="assets/Css.png" alt="Css"><p>CSS</p></div>
+            <div class="skill-item"><img src="assets/scikit-learn.png" alt="Scikit-learn"><p>Scikit-learn</p></div>
+            <div class="skill-item"><img src="assets/Arduino.png" alt="Arduino"><p>Arduino</p></div>
+        </div>
+    </section>
+
+    <section id="certificates" class="portfolio-section certificates-section">
+        <h2 class="section-title">Certifications and Digital Credentials</h2>
+        <div class="certs-container">
+            
+            <div class="cert-card">
+                <img src="Assets/python certificate.png" alt="Python Certificate">
+                <div class="cert-info">
+                    <p class="cert-title">Python</p>
+                    <p class="cert-issuer">GUVI Geek Networks</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <img src="Assets/Introduction to Cyber security.png" alt="Introduction to Cyber Security">
+                <div class="cert-info">
+                    <p class="cert-title">Introduction to Cyber Security</p>
+                    <p class="cert-issuer">CISCO Networking Academy</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <img src="Assets/Introduction to HTML_certificate.jpg" alt="Introduction to HTML certificate">
+                <div class="cert-info">
+                    <p class="cert-title">Introduction to HTML Certificate</p>
+                    <p class="cert-issuer">Sololearn</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <img src="Assets/AWS Academy Graduate AWS Academy Cloud Foundations.jpg" alt="AWS Academy Graduate AWS Academy Cloud Foundations">
+                <div class="cert-info">
+                    <p class="cert-title">AWS Academy Graduate</p>
+                    <p class="cert-issuer">AWS Academy Cloud Foundations</p>
+                </div>
+            </div>
+
+            <div class="cert-card">
+                <img src="Assets/MongoDB certificate.jpg" alt="MongoDB certificate">
+                <div class="cert-info">
+                    <p class="cert-title">MongoDB certificate</p>
+                    <p class="cert-issuer">MongoDB</p>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="Assets/Deep Learning using TensorFlow Badge.jpg" alt="Deep Learning using TensorFlow">
+                <div class="cert-info">
+                    <p class="cert-title">Deep Learning using TensorFlow</p>
+                    <p class="cert-issuer">IBM</p>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="Assets/CyberSecurity Analyst job simulation page.jpg" alt="CyberSecurity Analyst job simulation">
+                <div class="cert-info">
+                    <p class="cert-title">TATA-CyberSecurity Analyst job simulation</p>
+                    <p class="cert-issuer">Forage</p>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="Assets/Computer Graphics and Visualisation(Ulektz).jpg" alt="Computer Graphics and Visualisation">
+                <div class="cert-info">
+                    <p class="cert-title">Computer Graphics and Visualisation</p>
+                    <p class="cert-issuer">Ulektz</p>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="Assets/GUVI - Bootcamp.png" alt="GUVI - Bootcamp">
+                <div class="cert-info">
+                    <p class="cert-title">GUVI-Bootcamp</p>
+                    <p class="cert-issuer">GUVI Geek Networks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="internships" class="portfolio-section internships-section">
+        <h2 class="section-title">Internships</h2>
+        <div class="internships-grid">
+            
+            <div class="internship-card">
+                <h3>Python Development Intern (Remote)</h3>
+                <h4>Tarcin Robotic LLP</h4>
+                <p class="duration">January 2025-June 2025</p>
+            </div>
+
+            <div class="internship-card">
+                <h3>Machine Learning Intern (Remote)</h3>
+                <h4>Cognifyz Technologies</h4>
+                <p class="duration">July 2024-August 2024</p>
+            </div>
+
+            <div class="internship-card">
+                <h3>Machine Learning Intern (Remote)</h3>
+                <h4>Codsoft</h4>
+                <p class="duration">June 2024-July 2024</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="portfolio-section projects-section">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <img src="Assets/project 1.png" alt="Restaurant Review System">
+                <h3>Foodo_Foods</h3>
+                <p class="project-desc">Cafetaria Management System (Restaurant based Webpage)</p>
+                <a href="https://github.com/Mohamedhasanfaris/Foodo_Foods" class="view-project-btn" target="_blank">View Code</a>
+            </div>
+            
+            <div class="project-card">
+                <img src="Assets/Project 2.png" alt="Mango Disease Detection">
+                <h3>Enhanced Disease Diagnosis in Mango Leaves based on Image Enhancement and EfficientNet</h3>
+                <p class="project-desc">Diagnosis manogo leaves diseases Using Deeplearning implement in Hugging face</p>
+                <a href="https://github.com/Mohamedhasanfaris/Enhanced-Disease-Diagnosis-in-Mango-Leaves-Based-on-Image-Enhancement-and-EfficientNetB0" class="view-project-btn" target="_blank">View Code</a>
+            </div>
+
+            
+        </div>
+    </section>
+
+
+    <section id="contact" class="portfolio-section">
+        <h2 class="section-title">Contact</h2>
+        
+        <div class="contact-container">
+            
+            <div class="contact-details">
+                <p>Ready to collaborate on a project or hire an AI/ML enthusiast? I'm just a message away. Connect with me!</p>
+                
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <p>mohamedhasanfaris1@gmail.com</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Kumbakonam, Tamilnadu, India</p>
+                </div>
+                
+                <div class="contact-info">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>+91 80XXX 32316</p>
+                </div>
+                
+                <div class="contact-social-links">
+                    <a href="https://www.linkedin.com/in/mohamed-hasan-faris/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Mohamedhasanfaris" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/hasan.faris.57/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="contact-form-wrapper">
+                <h3>Send Me a Message</h3>
+                <form class="contact-form" action="https://formspree.io/f/mldpzdbj" method="POST">
+                    <input type="text" placeholder="Your Name" required name="name">
+                    <input type="email" placeholder="Your Email" required name="_replyto">
+                    <textarea placeholder="Your Message" rows="5" required name="message"></textarea>
+                    
+                    <p id="form-status"></p> 
+                    <button type="submit" class="hire-button">Submit</button>
+                </form>
+            </div>
+            
+        </div>
+    </section>
+    
+    <div id="resumeModal" class="resume-modal">
+        <div class="modal-content">
+        
+            <div class="modal-header">
+                <h2>Resume Preview</h2>
+                <span class="close-button" onclick="closeResumeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-body">
+                <iframe id="resumeFrame" src="Assets/Mohamed Hasan Faris-Resume.pdf" frameborder="0"></iframe>
+            </div>
+            
+            <div class="modal-footer">
+                <a href="Assets/Mohamed Hasan Faris-Resume.pdf" download="Mohamed_Hasan_Faris_Resume.pdf" class="download-button">
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+            </div>
+        
+        </div>
+    </div>
+    <footer class="main-footer">
+    <p>&copy; <span id="current-year"></span> Mohamed Hasan Faris M. All rights reserved.</p>
+    <div class="footer-social-links">
+        <a href="https://www.linkedin.com/in/mohamed-hasan-faris/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Mohamedhasanfaris" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/hasan.faris.57/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+</footer>
+    <script src="script.js"></script>
+</body>
+</html>

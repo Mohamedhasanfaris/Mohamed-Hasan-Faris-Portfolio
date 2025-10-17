@@ -1,0 +1,1023 @@
+/* Custom Fonts and Reset */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth; 
+}
+
+:root {
+    --primary-color: #FF0000; 
+    /* Default is Dark Mode */
+    --text-color: #FFFFFF;
+    --background-color: #000000;
+    --secondary-bg-color: #111111;
+    --light-text-color: #AAAAAA;
+    
+    /* Light Mode Variables */
+    --light-mode-text: #000000;
+    --light-mode-bg: #FFFFFF;
+    --light-mode-secondary-bg: #F0F0F0;
+    --light-mode-light-text: #555555;
+    /* Extra variable for footer border and inputs, derived from secondary-bg for DM contrast */
+    --border-color: #333333; 
+}
+
+/* --------------------
+    THEME TOGGLE SETUP
+-------------------- */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+/* --------------------
+    LIGHT THEME DEFINITION
+-------------------- */
+
+body.light-theme {
+    background-color: var(--light-mode-bg);
+    color: var(--light-mode-text);
+}
+
+/* Navbar Theme Fix */
+body.light-theme .navbar {
+    background-color: var(--light-mode-bg);
+    border-bottom-color: #DDDDDD;
+}
+
+body.light-theme .nav-links a {
+    color: var(--light-mode-text); /* Default link color in light mode */
+}
+body.light-theme .nav-links a.active,
+body.light-theme .nav-links a:hover {
+    color: var(--primary-color);
+}
+body.light-theme .nav-links a.active::after, 
+body.light-theme .nav-links a:hover::after {
+    background-color: var(--primary-color);
+}
+body.light-theme .logo {
+    color: var(--light-mode-text);
+}
+
+/* Titles and Primary Text: Black/Dark Grey Color */
+body.light-theme .hero-content h1,
+body.light-theme .hero-content h1 span, 
+body.light-theme .hero-content .greeting,
+body.light-theme .section-title,
+body.light-theme .cert-info .cert-title,
+body.light-theme .internship-card h3,
+body.light-theme .project-card h3 {
+    color: var(--light-mode-text); 
+}
+
+/* Secondary/Description Text: Light Grey Color- */
+body.light-theme .hero-content .description,
+body.light-theme .internship-card h4,
+body.light-theme .cert-info .cert-issuer,
+body.light-theme .skill-item p,
+body.light-theme .project-card .project-desc,
+body.light-theme .contact-details p {
+    color: var(--light-mode-light-text);
+}
+
+/* Social Icons */
+body.light-theme .social-links a i {
+    color: var(--light-mode-light-text);
+    border-color: var(--light-mode-light-text);
+}
+body.light-theme .social-links a i:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Section Dividers */
+body.light-theme .portfolio-section {
+    border-bottom-color: #DDDDDD; 
+}
+
+/* Cards/Secondary Backgrounds */
+body.light-theme .internship-card,
+body.light-theme .project-card,
+body.light-theme .cert-card {
+    background-color: var(--light-mode-secondary-bg);
+    border-color: #DDDDDD;
+}
+
+/* Contact Form Inputs */
+body.light-theme .contact-form input[type="text"],
+body.light-theme .contact-form input[type="email"],
+body.light-theme .contact-form textarea {
+    background-color: var(--light-mode-bg); /* Changed from secondary-bg to bg for better light contrast */
+    border-color: #CCC;
+    color: var(--light-mode-text);
+}
+
+/* Modal Theme */
+body.light-theme .modal-content {
+    background-color: var(--light-mode-bg);
+    border-color: #DDDDDD;
+}
+body.light-theme .modal-body iframe {
+    background-color: #EEE;
+}
+body.light-theme .close-button {
+    color: var(--light-mode-light-text);
+}
+body.light-theme .close-button:hover {
+    color: var(--primary-color);
+}
+body.light-theme #theme-toggle {
+    color: var(--light-mode-text);
+}
+
+
+/* --------------------
+    NAVBAR STYLES
+-------------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--background-color); 
+    border-bottom: 1px solid var(--secondary-bg-color); 
+    transition: background-color 0.3s, border-bottom-color 0.3s;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+/* Underline animation for active/hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-out;
+}
+
+.nav-links a.active::after, 
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.highlighted-link {
+    font-weight: 600;
+}
+
+/* Theme Toggle Icon Style: POSITION FIXED */
+#theme-toggle {
+    font-size: 1.5rem;
+    color: var(--text-color); 
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#theme-toggle:hover {
+    color: var(--primary-color);
+}
+
+/* --------------------
+    HERO SECTION STYLES
+-------------------- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: 80px;
+    padding-top: 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 50px;
+}
+
+.hero-content .greeting {
+    font-size: 1.8rem; /* Adjusted size */
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.hero-content h1 {
+    font-size: 3rem; /* Increased size back for desktop */
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    min-height: 4.5rem; /* Fixes Role text jumping */
+}
+/* Role text dynamic change-kku */
+#role-text {
+    color: var(--primary-color); 
+    display: inline-block;
+    border-right: 3px solid var(--primary-color); /* Blinking cursor effect */
+    white-space: nowrap;
+    overflow: hidden; 
+}
+.hero-content .description {
+    color: var(--light-text-color);
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+
+/* --------------------
+    HERO IMAGE STYLES
+-------------------- */
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 50%;
+}
+
+.profile-image { 
+    width: 350px;
+    height: 350px; 
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    object-fit: cover;
+}
+
+
+/* --------------------
+    SOCIAL & BUTTONS STYLES
+-------------------- */
+.hire-and-resume-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.hire-button {
+    display: inline-block; 
+    text-align: center;
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.hire-button:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.resume-button {
+    background: var(--primary-color); 
+    color: var(--text-color);
+    border: 2px solid var(--primary-color);
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.resume-button:hover {
+    background-color: transparent; 
+    color: var(--primary-color);
+}
+
+.social-links {
+    margin-bottom: 40px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a i {
+    font-size: 1.5rem;
+    color: var(--light-text-color);
+    padding: 5px;
+    border: 1px solid var(--light-text-color);
+    border-radius: 5px;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.social-links a i:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+
+/* --------------------
+    RESUME MODAL STYLES
+-------------------- */
+.resume-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9); 
+    padding-top: 50px;
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    height: 90%; 
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.modal-header h2 {
+    color: var(--primary-color);
+}
+
+.close-button {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary-color);
+}
+
+.modal-body {
+    flex-grow: 1;
+    overflow: hidden; 
+}
+
+.modal-body iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #222; 
+}
+
+.modal-footer {
+    padding-top: 15px;
+    text-align: right;
+    border-top: 1px solid #333;
+    margin-top: 15px;
+}
+
+.download-button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+}
+
+.download-button i {
+    margin-right: 8px;
+}
+
+
+/* --------------------
+    SECTIONS STYLING 
+-------------------- */
+.portfolio-section {
+    padding: 80px 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--secondary-bg-color); 
+    transition: border-bottom-color 0.3s;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 50px;
+    text-align: center; 
+    transition: color 0.3s;
+}
+
+/* 1. SKILLS SECTION */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.skill-item {
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-item img {
+    width: 60px; 
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.skill-item p {
+    color: var(--light-text-color);
+    font-size: 0.9rem;
+}
+
+
+/* 2. CERTIFICATES SECTION */
+/* FIX: Consolidated the certificate container styles for horizontal scroll */
+.certs-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-bottom: 20px;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    width: 100%; 
+    max-width: 100%;
+}
+
+.certs-grid { 
+    display: flex; /* Flex is better for horizontal scrolling */
+    gap: 30px;
+    padding-bottom: 20px;
+    
+    /* CRITICAL FIX: Horizontal scrolling for mobile */
+    overflow-x: hidden; 
+    overflow-y: hidden;
+    
+    /* Hide default scrollbar (if needed) */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.certs-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.cert-card {
+    min-width: 320px; /* Slightly increased min-width for better look on small desktop/tablet */
+    flex-shrink: 0;
+    background-color: var(--secondary-bg-color);
+    border: 1px solid #222;
+    padding: 15px;
+    border-radius: 8px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+}
+
+.cert-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.cert-info .cert-title {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.cert-info .cert-issuer {
+    font-size: 0.8rem;
+    color: var(--light-text-color);
+}
+
+.cert-link {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+
+/* 3. INTERNSHIPS SECTION */
+.internships-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.internship-card {
+    background-color: var(--secondary-bg-color);
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.internship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+}
+
+.internship-card h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.internship-card h4 {
+    color: var(--light-text-color);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.internship-card .duration {
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.internship-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.internship-card li {
+    font-size: 0.95rem;
+    color: var(--light-text-color);
+    position: relative;
+    padding-left: 15px;
+}
+
+.internship-card li::before {
+    content: '•';
+    color: var(--primary-color);
+    font-weight: 800;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+
+/* 4. PROJECTS SECTION */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.project-card {
+    background-color: var(--secondary-bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding: 0 15px;
+}
+
+.project-card .project-desc {
+    color: var(--light-text-color);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.view-project-btn {
+    display: inline-block;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.view-project-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+
+/* 5. CONTACT SECTION */
+
+.contact-container {
+    display: flex;
+    gap: 50px; /* Space between details and form */
+    align-items: flex-start; /* Align contents to the top */
+    padding-top: 30px;
+}
+
+/* Left Side: Details & Info */
+.contact-details {
+    flex: 1; /* Takes up equal space as the form */
+    padding: 20px;
+    background-color: var(--secondary-bg-color); /* Use card background color for separation */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-details p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.contact-info i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    width: 25px; /* For alignment */
+    text-align: center;
+}
+
+/* Social Links styling inside contact box */
+.contact-social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.contact-social-links a i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+.contact-social-links a i:hover {
+    color: var(--light-text-color); /* Used light-text for a general accent hover in contact */
+}
+
+
+/* Right Side: Form */
+.contact-form-wrapper {
+    flex: 1; /* Takes up equal space */
+    padding: 20px;
+}
+
+.contact-form-wrapper h3 {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+/* Existing form styles kooda, new styles add pannanum */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color); /* Used new border variable */
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
+    border-radius: 5px;
+}
+
+/* --- LIGHT MODE Overrides for Contact Section --- */
+.light-theme .contact-details {
+    background-color: var(--light-mode-secondary-bg); /* Left Side Box BG */
+}
+
+.light-theme .contact-details p {
+    color: var(--light-mode-light-text);
+}
+.light-theme .contact-info p {
+    color: var(--light-mode-text); /* Ensure dark text */
+}
+
+.light-theme .contact-form-wrapper h3 {
+    color: var(--light-mode-text); /* Form Heading Fix */
+}
+
+.light-theme .contact-form input,
+.light-theme .contact-form textarea {
+    background-color: var(--light-mode-bg); /* Input Box BG: White */
+    border: 1px solid #CCCCCC;
+    color: var(--light-mode-text);
+}
+
+/* Add this new style to your CSS file (Contact section kku kela) */
+#form-status {
+    /* Default: Hide the message initially */
+    display: none; 
+    font-weight: 600;
+    margin-top: 15px;
+    text-align: center;
+    color: var(--primary-color); /* Primary color for visibility in DM */
+}
+/* Light mode-kku vera color venumna: */
+body.light-theme #form-status {
+    color: green; /* Green nallaa irukkum */
+}
+
+/* --- FOOTER STYLING --- */
+.main-footer {
+    width: 100%;
+    padding: 30px 0; /* Increased padding for better look */
+    margin-top: 50px; /* Increased margin for better separation */
+    background-color: var(--background-color); /* Main background color use pannirukken */
+    color: var(--light-text-color);
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color); /* Use border variable */
+    transition: background-color 0.3s, border-top-color 0.3s;
+}
+
+.main-footer p {
+    margin-bottom: 15px;
+}
+/* Light mode Footer fix */
+body.light-theme .main-footer {
+    background-color: var(--light-mode-bg);
+    border-top-color: #DDDDDD;
+}
+body.light-theme .main-footer a i {
+    color: var(--light-mode-light-text);
+}
+
+
+.footer-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-social-links a i {
+    font-size: 1.5rem;
+    color: var(--light-text-color);
+    transition: color 0.3s;
+}
+
+.footer-social-links a i:hover {
+    color: var(--primary-color);
+}
+
+/* --------------------
+    RESPONSIVE DESIGN
+-------------------- */
+
+/* For tablets (width ≤ 1024px) */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 15px 40px;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 120px 40px 60px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-image-container {
+    max-width: 100%;
+    margin-top: 30px;
+  }
+
+  .profile-image {
+    width: 280px;
+    height: 280px;
+  }
+
+  .skills-grid,
+  .projects-grid,
+  .internships-grid,
+  .certs-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .contact-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .contact-details,
+  .contact-form-wrapper {
+    width: 100%;
+  }
+}
+
+/* For mobile devices (width ≤ 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    width: 70%;
+    height: calc(100vh - 70px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    padding-top: 50px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+
+  .hero-section {
+    padding: 100px 20px 60px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-content .description {
+    font-size: 0.95rem;
+  }
+
+  .profile-image {
+    width: 220px;
+    height: 220px;
+  }
+
+  .portfolio-section {
+    padding: 60px 20px;
+  }
+
+  .skills-grid {
+    gap: 20px;
+  }
+
+  .certs-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .cert-card {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .hire-and-resume-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .resume-button,
+  .hire-button {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+/* For very small screens (width ≤ 480px) */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+
+  .hero-content .greeting {
+    font-size: 1.1rem;
+  }
+
+  .social-links a i {
+    font-size: 1.1rem;
+    padding: 4px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .project-card h3 {
+    font-size: 1rem;
+  }
+
+  .contact-info p {
+    font-size: 0.9rem;
+  }
+}
